@@ -1,0 +1,40 @@
+.github {
+  display: flex;
+  align-items: center;
+  margin: 2rem 0;
+}
+
+.github-avatar {
+  max-width: 10rem;
+
+  img {
+    border-radius: 10rem;
+  }
+}
+
+.github-info {
+  padding-left: 2rem;
+
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  li {
+    margin-top: 1rem;
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+
+  h4 {
+    font-weight: 600;
+    margin-bottom: 0;
+  }
+
+  p {
+    margin-top: 0;
+  }
+}

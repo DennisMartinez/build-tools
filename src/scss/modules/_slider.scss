@@ -1,0 +1,52 @@
+.slider {
+  display: none;
+
+  &.slick-initialized {
+    display: block;
+  }
+
+  &:hover {
+    .slick-arrow {
+      opacity: 0.5;
+    }
+  }
+
+  .slick-list {
+    border-radius: 0.5rem;
+  }
+
+  .slick-slide {
+    outline: none;
+  }
+
+  .slick-arrow {
+    @include font(40);
+    position: absolute;
+    z-index: 2;
+    top: 50%;
+    padding: 0;
+    border: 0;
+    background: none;
+    outline: none;
+    color: $white;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.2s;
+    transform: translateY(-50%);
+
+    // Precedence selector
+    &:hover {
+      :hover & {
+        opacity: 1 ;
+      }
+    }
+    
+    &.slick-prev {
+      left: 2rem;
+    }
+
+    &.slick-next {
+      right: 2rem;
+    }
+  }
+}

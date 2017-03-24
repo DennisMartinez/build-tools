@@ -1,0 +1,21 @@
+@mixin font($font-size: 15px, $leading: 120%, $letter-spacing: 0) {
+  @function removeUnit($val) {
+    @return $val / ($val * 0 + 1)
+  }
+
+  $font-size-no-unit: removeUnit($font-size);
+  $leading-no-unit: removeUnit($leading);
+  $letter-spacing-no-unit: removeUnit($letter-spacing);
+  $font-size-rem: ($font-size-no-unit) / 10;
+  $leading-rem: ($leading-no-unit) / 10;
+  
+  font-size: $font-size-rem + rem;
+  
+  @if ($leading-no-unit == 120) {
+    line-height: $font-size-rem + (($leading-rem / 10) / 2) + rem;
+  } @else {
+    line-height: $leading-rem + rem;
+  }
+  
+  letter-spacing: $letter-spacing-no-unit / 1000;
+}

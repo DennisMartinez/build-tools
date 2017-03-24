@@ -1,0 +1,10 @@
+$black: #000 !default;
+$white: #fff !default;
+
+$site-width: 1200px !default;
+$breakpoints: (
+  lg: $site-width,  // desktop
+  md: 768px,        // tablet
+  sm: 544px,        // phone
+  xs: 360px         // small phone
+) !default;
