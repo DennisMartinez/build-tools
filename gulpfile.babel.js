@@ -23,16 +23,16 @@ require('./gulp/bridge.js')(gulp, [
   'styles',
   'watch',
   'webpack'
-], $, server);
+], $, server)
 
 /**
  * Default Task
  */
 gulp.task('default', done => {
   $.runSequence('server', 'watch', () => {
-    $.util.log($.util.colors.green.bold('START SERVER'));
+    $.util.log($.util.colors.green.bold('START SERVER'))
 
-    done();
+    done()
   })
 })
 

@@ -54,7 +54,6 @@ A list of features in this kit.
 * Unit Test Support
   * TODO: [Ava](https://www.npmjs.com/package/ava), Maybe?
 * Utility Support
-  * Semver Bumping ([gulp-bump](https://www.npmjs.com/package/gulp-bump))
   * Conditional Pipe Control ([gulp-if](https://www.npmjs.com/package/gulp-if))
   * Pipe Cleaner ([gulp-plumber](https://www.npmjs.com/package/gulp-plumber))
   * Sequential or Parallel Tasks ([run-sequence](https://www.npmjs.com/package/run-sequence))
