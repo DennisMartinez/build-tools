@@ -34,9 +34,15 @@ export class GitHub {
       </div>
     `
 
+    // An example of how we can add some logs or blocks of code in development only
+    // On a production build, webpack will remove this entire block of code, including the if check
+    if (__DEV__) console.log('Template created')
+
     // Breaks the Single Responsibility principle, but again, only an example.
     // https://en.wikipedia.org/wiki/SOLID_(object-oriented_design)
     this.el.html(template)
+
+    if (__DEV__) console.log('Template rendered')
 
     return template
   }
