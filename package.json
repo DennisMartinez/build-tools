@@ -1,8 +1,22 @@
 {
   "name": "build-tools",
+  "description": "Build tools using Gulp and Webpack 2",
   "version": "1.0.0",
   "main": "index.js",
+  "license": "MIT",
   "private": true,
+  "repository": "https://github.com/DennisMartinez/build-tools.git",
+  "bugs": "https://github.com/DennisMartinez/build-tools/issues",
+  "author": {
+    "name": "Dennis Martinez",
+    "email": "denniswaltermartinez@gmail.com"
+  },
+  "contributors": [
+    {
+      "name": "Joe Fusco",
+      "email": "jfusco311@gmail.com"
+    }
+  ],
   "scripts": {
     "dev": "cross-env NODE_ENV=development gulp",
     "build": "cross-env NODE_ENV=production gulp dist",
