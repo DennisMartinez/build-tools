@@ -1,14 +1,17 @@
 # Use the latest node image
 FROM node:latest
 
-# Copy our app into the image app location
-COPY . /usr/src/app
+# http://bitjudo.com/blog/2014/03/13/building-efficient-dockerfiles-node-dot-js/
+COPY package.json /tmp/package.json
+RUN cd /tmp && npm install --silent
+RUN mkdir -p /app && cp -a /tmp/node_modules /app/
 
-# Change to the current working directory
-WORKDIR /usr/src/app
+# Change to the app directory
+WORKDIR /app
+COPY . /app
 
 # Expose browser-sync port
 EXPOSE 3000
 
-# Run the app
-CMD npm install --silent && npm run dev
+# Start the dev server
+CMD npm run dev
