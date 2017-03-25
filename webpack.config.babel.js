@@ -1,5 +1,6 @@
 import { resolve } from 'path'
 import webpack from 'webpack'
+import ProgressBarPlugin from 'progress-bar-webpack-plugin'
 
 const env = process.env.NODE_ENV || 'development'
 
@@ -50,6 +51,12 @@ const config = {
   plugins: [
     new webpack.optimize.CommonsChunkPlugin({
       names: ['vendor', 'manifest']
+    }),
+    new webpack.DefinePlugin({
+      '__DEV__': process.env.NODE_ENV === 'development',
+      'process.env': {
+        'NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development')
+      }
     })
   ]
 }
@@ -65,11 +72,6 @@ if (env !== 'production') {
   }
 
   config.plugins = (config.plugins || []).concat([
-    new webpack.DefinePlugin({
-      'process.env': {
-        NODE_ENV: JSON.stringify('development')
-      }
-    }),
     new webpack.HotModuleReplacementPlugin()
   ])
 }
@@ -81,16 +83,14 @@ if (env === 'production') {
   config.devtool = 'cheap-source-map'
   
   config.plugins = (config.plugins || []).concat([
-    new webpack.DefinePlugin({
-      'process.env': {
-        NODE_ENV: JSON.stringify('production')
-      }
-    }),
     new webpack.optimize.UglifyJsPlugin({
       sourceMap: true,
       compress: {
         warnings: false
       }
+    }),
+    new ProgressBarPlugin({
+      clear: false
     })
   ])
 }
