@@ -1,5 +1,5 @@
-module.exports = (gulp, tasks, $, server, proxyServer) => {
+module.exports = (gulp, tasks, $, server) => {
   tasks.forEach(name => {
-    require('./tasks/' + name)(gulp, $, server, proxyServer)
+    require('./tasks/' + name)(gulp, $, server)
   })
 }

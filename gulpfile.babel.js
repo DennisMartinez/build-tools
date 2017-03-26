@@ -8,11 +8,6 @@ import beep from 'beepbeep'
  */
 const $ = gulpLoadPlugins({pattern: ['gulp-*', 'gulp.*', 'run-sequence', 'del'], scope: ['devDependencies']});
 
-/**
- * Create dev server
- */
-const server = 
-
 require('./gulp/bridge.js')(gulp, [
   'clean',
   'fonts',
@@ -23,9 +18,7 @@ require('./gulp/bridge.js')(gulp, [
   'styles',
   'watch',
   'webpack'
-], $, 
-browserSync.create('server'),
-browserSync.create('proxy'));
+], $, browserSync.create());
 
 /**
  * Default Task

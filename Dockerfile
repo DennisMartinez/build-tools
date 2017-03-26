@@ -15,7 +15,7 @@ WORKDIR /website
 RUN npm install --silent
 
 # Expose browser-sync port
-EXPOSE 5000
+EXPOSE 3000 3001
 
 # Start the dev server
 CMD npm run dev
