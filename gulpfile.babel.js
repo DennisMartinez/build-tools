@@ -11,7 +11,7 @@ const $ = gulpLoadPlugins({pattern: ['gulp-*', 'gulp.*', 'run-sequence', 'del'],
 /**
  * Create dev server
  */
-const server = browserSync.create()
+const server = 
 
 require('./gulp/bridge.js')(gulp, [
   'clean',
@@ -23,7 +23,9 @@ require('./gulp/bridge.js')(gulp, [
   'styles',
   'watch',
   'webpack'
-], $, server);
+], $, 
+browserSync.create('server'),
+browserSync.create('proxy'));
 
 /**
  * Default Task

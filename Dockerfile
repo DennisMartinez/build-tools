@@ -5,7 +5,7 @@ FROM node:latest
 RUN mkdir -p /website
 
 # Config
-ENV NODE_ENV development
+ENV NODE_ENV=development
 
 # Change to the website directory
 COPY . /website
@@ -15,7 +15,7 @@ WORKDIR /website
 RUN npm install --silent
 
 # Expose browser-sync port
-EXPOSE 3000
+EXPOSE 5000
 
 # Start the dev server
 CMD npm run dev

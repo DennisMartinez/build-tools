@@ -5,7 +5,7 @@
   "private": true,
   "scripts": {
     "dev": "gulp",
-    "build": "cross-env NODE_ENV=production gulp dist",
+    "build": "cross-env NODE_ENV=production gulp dist (TODO, WILL BREAK IF YOU RUN NOW)",
     "test": "echo \"Error: no test specified\" && exit 1",
     "version": "git add .",
     "postversion": "git push && git push --tags"
