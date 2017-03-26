@@ -5,6 +5,5 @@ services:
     build: .
     volumes:
       - ./src:/website/src
-      - ./dist:/website/dist
     ports:
       - 3000:3000
