@@ -1,9 +1,10 @@
 version: '3'
 
 services:
-  frontend:
+  website:
     build: .
     volumes:
-      - .:/app
+      - ./src:/website/src
+      - ./dist:/website/dist
     ports:
       - 3000:3000

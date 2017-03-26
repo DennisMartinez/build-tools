@@ -1,14 +1,18 @@
 # Use the latest node image
 FROM node:latest
 
-# http://bitjudo.com/blog/2014/03/13/building-efficient-dockerfiles-node-dot-js/
-COPY package.json /tmp/package.json
-RUN cd /tmp && npm install --silent
-RUN mkdir -p /app && cp -a /tmp/node_modules /app/
+# Create the website dir
+RUN mkdir -p /website
 
-# Change to the app directory
-WORKDIR /app
-COPY . /app
+# Config
+ENV NODE_ENV development
+
+# Change to the website directory
+COPY . /website
+WORKDIR /website
+
+# Install dependencies
+RUN npm install --silent
 
 # Expose browser-sync port
 EXPOSE 3000

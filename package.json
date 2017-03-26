@@ -4,7 +4,7 @@
   "main": "index.js",
   "private": true,
   "scripts": {
-    "dev": "cross-env NODE_ENV=development gulp",
+    "dev": "gulp",
     "build": "cross-env NODE_ENV=production gulp dist",
     "test": "echo \"Error: no test specified\" && exit 1",
     "version": "git add .",
