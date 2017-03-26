@@ -11,9 +11,9 @@ module.exports = (gulp, $, server) => {
     const bundler = webpack(webpackConfig)
 
     server.init({
-      notify: false,
-      logLevel: 'none',
-      open: false,
+      // notify: false,
+      // logLevel: 'none',
+      // open: false,
       server: {
         baseDir: 'dist',
         middleware: [
