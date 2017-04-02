@@ -7,7 +7,7 @@ import { GitHub } from '../src/js/modules/Github'
 
 jasmine.getFixtures().fixturesPath = 'base/src/modules'
 
-describe('Github.js', () => {
+describe('Github.js - instantiation', () => {
   let github = null
 
   beforeEach(() => {
@@ -63,27 +63,38 @@ describe('Github.js', () => {
   })
 })
 
-describe('Github - render', () => {
-  beforeEach(() => {
-    loadFixtures('github.html')
+describe('Github.js - ajax', () => {
+  const github = new GitHub('DennisMartinez')
 
-    jasmine.Ajax.install();
-  })
+  let request
+
+  beforeEach(done => {
+    jasmine.Ajax.install()
+
+    github.getUserData()
+
+    request = jasmine.Ajax.requests.mostRecent()
+    request.respondWith(GithubResponse)
+
+    done()
+  });
 
   afterEach(() => {
     jasmine.Ajax.uninstall();
   })
 
-  it('should make a call to get user info', () => {
-    const github = new GitHub('DennisMartinez')
+  it('sends the request to the right end point', () => {
+    expect(request.url).toBe('https://api.github.com/users/DennisMartinez')
+  });
 
-    const spy = spyOn($, 'getJSON')
+  it('uses the correct method', () => {
+    expect(request.method).toBe('GET')
+  });
 
-    jasmine.Ajax.stubRequest(`https://api.github.com/users/${github.username}`)
-      .andReturn(GithubResponse)
+  it('should return the correct data', () => {
+    const data = JSON.parse(request.responseText)
 
-    github.getUserData()
-
-    expect(spy).toHaveBeenCalled()
+    expect(typeof data).toBe('object')
+    expect(data.name).toBe('Dennis Martinez')
   })
 })
