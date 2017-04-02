@@ -6,7 +6,14 @@ var path = require('path');
 module.exports = function (config) {
 	config.set({
 		frameworks: ['jasmine'],
-		files: ['__tests__/*-test.js'],
+    files: [
+      '__tests__/*-test.js',
+      {
+        pattern: 'src/modules/**/*.html',
+        served: true,
+        included: false
+      }
+    ],
 		plugins: [webpack, 'karma-jasmine', 'karma-phantomjs-launcher', 'karma-spec-reporter', 'karma-coverage'],
 		browsers: ['PhantomJS'],
 		preprocessors: {

@@ -2,12 +2,16 @@
  * Example module using async/await, pulling from a user on github.
  *
  * Note:
- *   jQuery is used in the example but the project is not concreate to jQuery.
+ *   jQuery is used in the example but the project is not concrete to jQuery.
  */
 import $ from 'jquery'
 
 export class GitHub {
   constructor(username) {
+    if (typeof username === 'undefined' || username === '') {
+      throw new Error('You must provide a username')
+    }
+
     this.el = $('.github')
     this.username = username
   }

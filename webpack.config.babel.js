@@ -8,7 +8,7 @@ const env = process.env.NODE_ENV || 'development'
  * Base Configuration.
  */
 const config = {
-  devtool: 'cheap-eval-source-map',
+  devtool: env === 'production' ? '#eval' : '#eval-source-map',
   entry: {
     app: [
       resolve(__dirname, 'src/js/app.js')
