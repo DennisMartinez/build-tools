@@ -52,7 +52,16 @@ A list of features in this kit.
 * Font Support
   * Supported but no tooling, only copies from one folder to another.
 * Unit Test Support
-  * TODO: [Ava](https://www.npmjs.com/package/ava), Maybe?
+  * Karma test suite ([karma](https://www.npmjs.com/package/karma))
+    * [karma-phantomjs-launcher](https://www.npmjs.com/package/karma-phantomjs-launcher)
+  * Jasmin framework ([jasmin](https://www.npmjs.com/package/jasmine))
+    * [jasmine-ajax](https://github.com/jasmine/jasmine-ajax)
+    * [jasmine-jquery](https://www.npmjs.com/package/jasmine-jquery)
+  * Test coverage
+    * [karma-spec-reporter](https://www.npmjs.com/package/karma-spec-reporter)
+    * [karma-coverage](https://www.npmjs.com/package/karma-coverage)
+    * [istanbul](https://www.npmjs.com/package/istanbul)
+    * [isparta-loader](https://www.npmjs.com/package/isparta-loader)
 * Utility Support
   * Conditional Pipe Control ([gulp-if](https://www.npmjs.com/package/gulp-if))
   * Pipe Cleaner ([gulp-plumber](https://www.npmjs.com/package/gulp-plumber))

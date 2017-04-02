@@ -1,7 +1,8 @@
 'use strict';
 
-var webpack = require('karma-webpack');
-var path = require('path');
+var karmaWebpack = require('karma-webpack')
+var webpack = require('webpack')
+var path = require('path')
 
 module.exports = function (config) {
 	config.set({
@@ -14,7 +15,7 @@ module.exports = function (config) {
         included: false
       }
     ],
-		plugins: [webpack, 'karma-jasmine', 'karma-phantomjs-launcher', 'karma-spec-reporter', 'karma-coverage'],
+		plugins: [karmaWebpack, 'karma-jasmine', 'karma-phantomjs-launcher', 'karma-spec-reporter', 'karma-coverage'],
 		browsers: ['PhantomJS'],
 		preprocessors: {
 			'__tests__/*-test.js': ['webpack']
@@ -46,11 +47,11 @@ module.exports = function (config) {
 					/node_modules\/sinon\//
 				]
 			},
-			resolve: {
-				alias: {
-					'sinon': 'sinon/pkg/sinon.js'
-				}
-			}
+      plugins: [
+        new webpack.DefinePlugin({
+          '__DEV__': process.env.NODE_ENV === 'development'
+        })
+      ]
 		},
 		webpackMiddleware: { noInfo: true }
 	});

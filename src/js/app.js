@@ -7,9 +7,11 @@ render('.github', async () => {
   const { GitHub } = await import(`./modules/Github`)
   const github = new GitHub('DennisMartinez')
 
-  github
-    .getUserData()
+  github.getUserData()
     .then(data => github.render(data))
+    .catch(err => {
+      console.log(err)
+    })
 })
 
 /**

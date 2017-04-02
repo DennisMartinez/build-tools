@@ -1,4 +1,5 @@
-export default {
+// 200
+export const ok200 = {
   status: 200,
   responseText: JSON.stringify({
     avatar_url: "https://avatars1.githubusercontent.com/u/1375616?v=3",
@@ -31,5 +32,14 @@ export default {
     type: "User",
     updated_at: "2017-03-25T16:42:02Z",
     url: "https://api.github.com/users/DennisMartinez"
+  })
+}
+
+// 404
+export const notFound404 = {
+  status: 404,
+  responseText: JSON.stringify({
+    documentation_url: "https://developer.github.com/v3",
+    message: "Not Found"
   })
 }

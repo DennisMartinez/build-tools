@@ -19,7 +19,7 @@
   ],
   "scripts": {
     "test": "karma start --single-run --no-auto-watch",
-    "dev": "cross-env NODE_ENV=development gulp",
+    "start": "cross-env NODE_ENV=development gulp",
     "build": "npm run test && cross-env NODE_ENV=production gulp dist",
     "version": "git add .",
     "postversion": "git push && git push --tags"
@@ -70,7 +70,6 @@
     "karma-webpack": "^2.0.3",
     "progress-bar-webpack-plugin": "^1.9.3",
     "run-sequence": "^1.2.2",
-    "sinon": "^2.0.0",
     "url-loader": "^0.5.8",
     "webpack": "^2.2.1",
     "webpack-dev-middleware": "^1.10.1",

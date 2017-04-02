@@ -20,14 +20,14 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">88.57% </span>
+        <span class="strong">97.14% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>62/70</span>
+        <span class='fraction'>68/70</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">85.71% </span>
+        <span class="strong">92.86% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>24/28</span>
+        <span class='fraction'>26/28</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
@@ -35,12 +35,12 @@
         <span class='fraction'>18/18</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">53.85% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>7/13</span>
+        <span class='fraction'>13/13</span>
       </div>
       <div class='fl pad1y'>
-        <span class="strong">9 statements, 3 functions, 9 branches</span>
+        <span class="strong">9 statements, 2 functions, 9 branches</span>
         <span class="quiet">Ignored</span>  &nbsp;&nbsp;&nbsp;&nbsp;
       </div>
     </div>
@@ -110,13 +110,13 @@
 <span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">7×</span>
-<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-yes">11×</span>
+<span class="cline-any cline-yes">11×</span>
 <span class="cline-any cline-yes">2×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">5×</span>
-<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-yes">9×</span>
+<span class="cline-any cline-yes">9×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -124,16 +124,8 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-yes">4×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -143,15 +135,23 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -178,8 +178,8 @@ export class GitHub {
   }
 &nbsp;
   // Just an example, you may want to use a templating engine.
-  render({ avatar_url: avatarUrl, html_url: url, company, name, bio, email }) <span class="cstat-no" title="statement not covered" >{</span>
-<span class="cstat-no" title="statement not covered" >    c</span>onst template = `
+  render({ avatar_url: avatarUrl, html_url: url, company, name, bio, email }) {
+    const template = `
       &lt;div class="github-avatar"&gt;
         &lt;img src="${avatarUrl}" alt="${name}"&gt;
       &lt;/div&gt;
@@ -197,15 +197,15 @@ export class GitHub {
 &nbsp;
     // An example of how we can add some logs or blocks of code in development only
     // On a production build, webpack will remove this entire block of code, including the if check
-<span class="cstat-no" title="statement not covered" >    if (__DEV__) <span class="cstat-no" title="statement not covered" >c</span></span>onsole.log('Template created')
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (__DEV__) <span class="cstat-no" title="statement not covered" >c</span>onsole.log('Template created')
 &nbsp;
     // Breaks the Single Responsibility principle, but again, only an example.
     // https://en.wikipedia.org/wiki/SOLID_(object-oriented_design)
-<span class="cstat-no" title="statement not covered" >    t</span>his.el.html(template)
+    this.el.html(template)
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    if (__DEV__) <span class="cstat-no" title="statement not covered" >c</span></span>onsole.log('Template rendered')
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (__DEV__) <span class="cstat-no" title="statement not covered" >c</span>onsole.log('Template rendered')
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    r</span>eturn template
+    return template
   }
 }
 &nbsp;
@@ -215,7 +215,7 @@ export class GitHub {
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sun Apr 02 2017 10:51:55 GMT-0400 (EDT)
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sun Apr 02 2017 19:20:54 GMT-0400 (EDT)
 </div>
 </div>
 <script src="../prettify.js"></script>

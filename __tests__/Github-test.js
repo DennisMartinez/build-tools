@@ -2,7 +2,7 @@ import 'babel-polyfill'
 import $ from 'jquery'
 import 'jasmine-jquery'
 import 'jasmine-ajax'
-import GithubResponse from './__helpers__/GithubResponse'
+import { ok200, notFound404 } from './__helpers__/GithubResponses'
 import { GitHub } from '../src/js/modules/Github'
 
 jasmine.getFixtures().fixturesPath = 'base/src/modules'
@@ -11,22 +11,6 @@ describe('Github.js - instantiation', () => {
   let github = null
 
   beforeEach(() => {
-    // In case we want to sandbox any module, we can use this
-    /*
-    github = sandbox({
-      class: 'github'
-    })
-     */
-
-    // OR
-
-    // We don't need the github variable if we setFixtures :)
-    /*
-    setFixtures(sandbox({
-      class: 'github'
-    }))
-    */
-
     github = new GitHub('jfusco')
   })
 
@@ -74,7 +58,7 @@ describe('Github.js - ajax', () => {
     github.getUserData()
 
     request = jasmine.Ajax.requests.mostRecent()
-    request.respondWith(GithubResponse)
+    request.respondWith(ok200)
 
     done()
   });
@@ -95,6 +79,65 @@ describe('Github.js - ajax', () => {
     const data = JSON.parse(request.responseText)
 
     expect(typeof data).toBe('object')
+    expect(request.status).toBe(200)
     expect(data.name).toBe('Dennis Martinez')
+    expect(data.company).toBe('Verndale')
+  })
+})
+
+describe('Github.js - render', () => {
+  let github = null,
+    gitHubAvatar,
+    gitHubInfo
+
+  const data = JSON.parse(ok200.responseText)
+
+  beforeEach(() => {
+    loadFixtures('github.html')
+
+    github = new GitHub('DennisMartinez')
+    github.render(data)
+
+    gitHubAvatar = $('.github-avatar')
+    gitHubInfo = $('.github-info')
+  })
+
+  afterEach(() => {
+    github = null
+    gitHubAvatar = null
+    gitHubInfo = null
+  })
+
+  describe('avatar', () => {
+    it('should exist', () => {
+      expect(gitHubAvatar).toBeInDOM()
+    })
+
+    it('should render avatar attributes', () => {
+      const $avatar = gitHubAvatar.find('img')
+
+      expect($avatar.attr('src')).toBe(data.avatar_url)
+      expect($avatar.attr('alt')).toBe(data.name)
+    })
+  })
+
+  describe('info', () => {
+    it('should exist', () => {
+      expect(gitHubInfo).toBeInDOM()
+    })
+
+    it('should render user info', () => {
+      const $gitHubLink = gitHubInfo.find('a')
+      const $company = gitHubInfo.find('li:nth-child(2)')
+      const $email = gitHubInfo.find('li:nth-child(3)')
+      const $bio = gitHubInfo.find('p')
+
+      expect($gitHubLink.attr('href')).toBe(data.html_url)
+      expect($gitHubLink.text()).toBe(data.html_url)
+
+      expect($company.text()).toBe(`Company: ${data.company}`)
+      expect($email.text()).toBe(`Email: ${data.email}`)
+      expect($bio.text()).toBe(data.bio)
+    })
   })
 })
